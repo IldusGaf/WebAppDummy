@@ -1,0 +1,15 @@
+@import '../styleConstants.scss';
+
+.loaderWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    display: flex;
+    &Dark {
+        @include darkContent;
+        background-color: inherit;
+    }
+}

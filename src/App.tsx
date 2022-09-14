@@ -1,29 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react';
+import {
+  Route, Navigate, HashRouter, Routes,
+} from 'react-router-dom';
+import './App.scss';
+import 'antd/dist/antd.css';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
+import PostList from './components/PostList/PostList';
+import { ThemeContext, ThemeContextProvider, ThemeContextState } from './contexts/ThemeContext';
+import UserList from './components/UserList/UserList';
 
 function App() {
+  const themeContext = useContext(ThemeContext);
+  console.log(themeContext.darkTheme);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <ThemeContextProvider>
+        <ThemeContext.Consumer>
+          {(context: Partial<ThemeContextState>) => (
+            <div className={`App ${context.darkTheme ? 'AppDark' : ''}`}>
+              <Header />
+              <Main>
+                <Routes>
+                  <Route path="/users" element={<UserList />} />
+                  <Route path="/posts" element={<PostList />} />
+                  <Route path="/user/:id" element={<div>post id</div>} />
+                  <Route path="/home" element={<div>HOME!</div>} />
+                  <Route path="/" element={<Navigate to="/home" />} />
+                </Routes>
+              </Main>
+              <Footer />
+            </div>
+          )}
+        </ThemeContext.Consumer>
+      </ThemeContextProvider>
+
+    </HashRouter>
+
   );
 }
 

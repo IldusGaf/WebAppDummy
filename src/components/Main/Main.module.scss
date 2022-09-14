@@ -1,0 +1,8 @@
+@import '../styleConstants.scss';
+.main {
+    display: flex;
+    justify-content: center;
+    margin: auto 0;
+    padding: 3.3rem 0;
+    @include mediaPadding;
+}

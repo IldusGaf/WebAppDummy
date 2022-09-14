@@ -1,0 +1,14 @@
+.componentWithHelper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.componentWithHelper__helper {
+    position: absolute;
+    z-index: 2;
+    top: -1.5em;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}

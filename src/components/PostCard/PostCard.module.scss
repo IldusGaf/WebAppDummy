@@ -1,0 +1,52 @@
+@import '../styleConstants.scss';
+.postCard {
+    display: flex;
+    background-color: $elementColor;
+    border: 0.1rem solid $elementBorderColor;
+    flex-direction: column;
+    border-radius: $contentBorderRadius;
+    margin: 0.5rem;
+    padding: 1rem;
+    box-sizing: content-box;
+    &__user {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.4rem;
+    }
+    &__userImage {
+        margin: 0;
+    img {
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+    }
+}
+    &__userDesc {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0.5rem;
+    }
+    &__userName {
+        display: flex;
+    }
+    &__userDate {
+        color: gray;
+    }
+    &__image {
+        object-fit: cover;
+        background-color: $backColor;
+        border-radius: $contentBorderRadius;
+        margin-bottom: 0.3rem;
+        @include mediaSizeImg;
+    }
+    &__desc {
+        color: inherit;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &Dark{
+        @include darkContent;
+    }
+    @include mediaSizeCards;
+}

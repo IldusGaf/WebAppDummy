@@ -1,5 +1,6 @@
 $backColor: #dfdede;
 $elementColor: #eeeeee;
+$elementDarkColor: #e4e6e7;
 $elementBorderColor: #d0cece;
 
 $headerFooterZ: 1;
@@ -17,7 +18,7 @@ $contentLeftRightPaddingExtraLarge: 5rem;
 }
 
 @mixin darkContent {
-    color: #e4e6e7;
+    color: $elementDarkColor;
     background-color: #35424B;
     border-color: #384248;
 }
@@ -116,9 +117,9 @@ $imgHeightExtraLarge: 70%;
     
 }
 
-$userWidthExtraSmall: 23vw;
-$userWidthSmall: 15vw;
-$userWidthMiddle: 10vw;;
+$userWidthExtraSmall: 93px;
+$userWidthSmall: 100px;
+$userWidthMiddle: 100px;
 $userWidthLarge: 10vw;
 $userWidthExtraLarge: 10vw;
 $userHeightExtraSmall: 150px;

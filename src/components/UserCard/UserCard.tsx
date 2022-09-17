@@ -21,7 +21,7 @@ export const UserCard = ({
         <div className={classes.userCard__userDesc}>
           <span className={classes.userCard__userName}>
             {title}
-            {' '}
+            {'. '}
             {firstName}
             {' '}
             {lastName}

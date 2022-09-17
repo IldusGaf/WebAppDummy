@@ -15,7 +15,7 @@ function App() {
   const themeContext = useContext(ThemeContext);
   console.log(themeContext.darkTheme);
   return (
-    <HashRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <ThemeContextProvider>
         <ThemeContext.Consumer>
           {(context: Partial<ThemeContextState>) => (
@@ -27,7 +27,7 @@ function App() {
                   <Route path="/posts" element={<PostList />} />
                   <Route path="/user/:id" element={<div>post id</div>} />
                   <Route path="/home" element={<div>HOME!</div>} />
-                  <Route path="/" element={<Navigate to="/home" />} />
+                  <Route path="/" element={<Navigate to="/posts" />} />
                 </Routes>
               </Main>
               <Footer />

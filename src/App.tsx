@@ -15,7 +15,7 @@ function App() {
   const themeContext = useContext(ThemeContext);
   console.log(themeContext.darkTheme);
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <ThemeContextProvider>
         <ThemeContext.Consumer>
           {(context: Partial<ThemeContextState>) => (

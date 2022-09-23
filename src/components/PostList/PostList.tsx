@@ -16,16 +16,17 @@ interface Props {
   postList: Array<PostType>,
   loading: boolean,
   error: any,
-  load: (page: number, limit: number) => void,
+  load: (page: number, limit: number, idUser?: string) => void,
   page: number,
   limit: number,
   total: number,
   setCurrentPage: (page: number) => void,
   setLimit: (limit: number) => void,
+  idUser?: string,
 }
 
 const PostList = ({
-  postList, loading, error, load, page, limit, total, setCurrentPage, setLimit,
+  postList, loading, error, load, page, limit, total, setCurrentPage, setLimit, idUser,
 }: Props) => {
   const [open, setOpen] = useState(false);
   const initialModalContent: PostType = {
@@ -46,21 +47,21 @@ const PostList = ({
   };
 
   useEffect(() => {
-    load(page - 1, limit);
+    load(page - 1, limit, idUser);
   }, [page, limit]);
 
   return (
     <div className={classes.paginationWrapper}>
       <div className={classes.postList}>
         {/* eslint-disable-next-line no-nested-ternary */}
-        {error ? <div>{error}</div> : loading ? <Loader /> : postList.map((post) => (
+        {error ? <div>{error}</div> : loading ? <Loader /> : (idUser ? postList.slice(0, 3) : postList).map((post) => (
           <ComponentWithHelper comment={post.id ? post.id : 'empty str'} key={post.id}>
             <div onClick={() => {
               setOpen(true);
               setModalContent(post);
             }}
             >
-              <PostCard image={post.image} text={post.text} owner={post.owner} publishDate={post.publishDate} />
+              <PostCard image={post.image} text={post.text} owner={post.owner} publishDate={post.publishDate} visibleOwner={!!idUser} />
             </div>
           </ComponentWithHelper>
         ))}

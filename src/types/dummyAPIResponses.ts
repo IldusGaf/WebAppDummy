@@ -31,6 +31,15 @@ export interface PostCommentType {
   id?: string,
 }
 
+export interface UserProfileTypeResponse extends OwnerType {
+  gender?: string,
+  email?: string,
+  dateOfBirth?: string,
+  registerDate?: string,
+  phone?: string,
+  location?: any
+}
+
 export interface PostListResponse extends ListResponseType<PostType> {}
 
 export interface PostCommentListResponse extends ListResponseType<PostCommentType> {}

@@ -10,6 +10,7 @@ import Main from './components/Main/Main';
 import PostList from './components/PostList/PostList';
 import { ThemeContext, ThemeContextProvider, ThemeContextState } from './contexts/ThemeContext';
 import UserList from './components/UserList/UserList';
+import User from './components/User/User';
 
 function App() {
   const themeContext = useContext(ThemeContext);
@@ -25,9 +26,8 @@ function App() {
                 <Routes>
                   <Route path="/users" element={<UserList />} />
                   <Route path="/posts" element={<PostList />} />
-                  <Route path="/user/:id" element={<div>post id</div>} />
-                  <Route path="/home" element={<div>HOME!</div>} />
-                  <Route path="/" element={<Navigate to="/home" />} />
+                  <Route path="/user/:id" element={<User />} />
+                  <Route path="/" element={<Navigate to="/posts" />} />
                 </Routes>
               </Main>
               <Footer />

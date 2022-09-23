@@ -1,24 +1,29 @@
-import { OwnerType, PostCommentType, PostType } from './dummyAPIResponses';
+import {
+  OwnerType, PostCommentType, PostType, UserProfileTypeResponse,
+} from './dummyAPIResponses';
 import { PaginationState } from './state';
 
 export interface Action {
   type: string
 }
 
-export interface PostListAction extends Action, PaginationState {
+export interface LoadingState {
+  loading?: boolean,
+  error?: string,
+}
+
+export interface PostListAction extends Action, PaginationState, LoadingState {
   postList?: Array<PostType>,
-  loading?: boolean,
-  error?: string,
 }
 
-export interface PostCommentListAction extends Action, PaginationState {
+export interface PostCommentListAction extends Action, PaginationState, LoadingState {
   postCommentList?: Array<PostCommentType>,
-  loading?: boolean,
-  error?: string,
 }
 
-export interface UserListAction extends Action, PaginationState {
+export interface UserListAction extends Action, PaginationState, LoadingState {
   userList?: Array<OwnerType>,
-  loading?: boolean,
-  error?: string,
+}
+
+export interface UserProfileAction extends Action, LoadingState {
+  userProfileData?: UserProfileTypeResponse,
 }

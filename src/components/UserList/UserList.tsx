@@ -45,7 +45,6 @@ const UserList = ({
   useEffect(() => {
     load(page - 1, limit);
   }, [page, limit]);
-  console.log(userList);
   return (
     <div className={classes.paginationWrapper}>
       {/* eslint-disable-next-line no-nested-ternary */}

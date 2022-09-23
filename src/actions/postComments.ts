@@ -3,7 +3,7 @@ import { Dispatch } from "redux";
 import { getPostCommentList } from "../api/dummyAPI"
 import { HIDE_POSTCOMMENTS_LOADING, LOAD_POSTCOMMENTS_ERROR, LOAD_POSTCOMMENTS_SUCCESS, SET_POSTCOMMENTS_CURRENT_PAGE, SET_POSTCOMMENTS_LIMIT, SET_POSTCOMMENTS_TOTAL_COUNT, SHOW_POSTCOMMENTS_LOADING } from "../constants/actions/postsComments"
 import { PostCommentListAction } from "../types/actions";
-import { PostCommentType } from "../types/dummyAPIResponses";
+import { PostCommentListResponse, PostCommentType } from "../types/dummyAPIResponses";
 
 
 const showLoadingAction = () => ({
@@ -42,7 +42,7 @@ export const setTotalCount = (total: number): PostCommentListAction => ({
 export const loadComments = (idPost: string, page: number, limit: number) => (dispath: Dispatch)=>{
     dispath(showLoadingAction());
     getPostCommentList(idPost, page, limit)
-    .then((resp) => {
+    .then((resp: PostCommentListResponse) => {
         dispath(loadSuccessAction(resp ? resp.data : []))
         dispath(setTotalCount(resp ? resp.total : 72))
     })

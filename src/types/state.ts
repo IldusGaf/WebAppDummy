@@ -1,4 +1,6 @@
-import { OwnerType, PostCommentType, PostType } from './dummyAPIResponses';
+import {
+  OwnerType, PostCommentType, PostType, UserProfileTypeResponse,
+} from './dummyAPIResponses';
 
 export interface PaginationState {
   page?: number,
@@ -6,26 +8,30 @@ export interface PaginationState {
   total?: number
 }
 
-export interface PostState extends PaginationState {
+export interface LoadingState {
+  loading: boolean,
+  error?: string,
+}
+
+export interface PostState extends PaginationState, LoadingState {
   postList: Array<PostType>,
-  loading: boolean,
-  error?: string,
 }
 
-export interface PostCommentState extends PaginationState {
+export interface PostCommentState extends PaginationState, LoadingState {
   postCommentList: Array<PostCommentType>,
-  loading: boolean,
-  error?: string,
 }
 
-export interface UserState extends PaginationState {
+export interface UserState extends PaginationState, LoadingState {
   userList: Array<OwnerType>,
-  loading: boolean,
-  error?: string,
+}
+
+export interface UserProfileState extends LoadingState {
+  userProfileData: UserProfileTypeResponse,
 }
 
 export interface State {
   posts: PostState,
   postComments: PostCommentState,
   users: UserState,
+  userProfile: UserProfileState,
 }

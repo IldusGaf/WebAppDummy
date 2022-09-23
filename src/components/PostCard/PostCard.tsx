@@ -5,15 +5,21 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import { PostType } from '../../types/dummyAPIResponses';
 import classes from './PostCard.module.scss';
 
+interface Props extends PostType {
+  visibleOwner?: boolean
+}
+
 export const PostCard = ({
   text,
   image,
   owner,
   publishDate,
-}:PostType) => {
+  visibleOwner,
+}:Props) => {
   const themeContext = useContext(ThemeContext);
   return (
     <div className={`${classes.postCard} ${themeContext.darkTheme ? classes.postCardDark : ''}`}>
+      {!visibleOwner && (
       <div className={classes.postCard__user}>
         {/* <Avatar icon={<UserOutlined />} size="large" /> */}
         <figure className={classes.postCard__userImage}><img alt={owner.firstName} src={owner.picture} /></figure>
@@ -26,6 +32,7 @@ export const PostCard = ({
           <span className={classes.postCard__userDate}>{publishDate}</span>
         </div>
       </div>
+      )}
       <img className={classes.postCard__image} alt="" src={image} />
       <span className={classes.postCard__desc}>{text}</span>
     </div>

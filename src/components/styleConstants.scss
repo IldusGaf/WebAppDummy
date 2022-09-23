@@ -24,19 +24,19 @@ $contentLeftRightPaddingExtraLarge: 5rem;
 }
 
 @mixin mediaPadding {
-    @media (max-width: 575px) { 
+    @media (max-width: 576px) { 
         padding-left: $contentLeftRightPaddingExtraSmall;
         padding-right: $contentLeftRightPaddingExtraSmall;
     } 
-    @media (min-width: 576px) and (max-width: 767px) {
+    @media (min-width: 576px) and (max-width: 768px) {
         padding-left: $contentLeftRightPaddingSmall;
         padding-right: $contentLeftRightPaddingSmall;
     }
-    @media (min-width: 768px) and (max-width: 991px) {
+    @media (min-width: 768px) and (max-width: 992px) {
         padding-left: $contentLeftRightPaddingMiddle;
         padding-right: $contentLeftRightPaddingMiddle;
     }
-    @media (min-width: 992px) and (max-width: 1199px) {
+    @media (min-width: 992px) and (max-width: 1200px) {
         padding-left: $contentLeftRightPaddingLarge;
         padding-right: $contentLeftRightPaddingLarge;
     } 

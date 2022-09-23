@@ -1,11 +1,10 @@
 /*eslint-disable*/
 import { Dispatch } from "redux";
-import { getPostList } from "../api/dummyAPI"
+import { getPostList, getPostListByUser } from "../api/dummyAPI"
 import { HIDE_POSTS_LOADING, LOAD_POSTS_ERROR, LOAD_POSTS_SUCCESS, SET_POSTS_CURRENT_PAGE, SET_POSTS_LIMIT, SET_POSTS_TOTAL_COUNT, SHOW_POSTS_LOADING } from "../constants/actions/posts"
 import { PostListAction } from "../types/actions";
-import { PostType } from "../types/dummyAPIResponses";
+import { PostListResponse, PostType } from "../types/dummyAPIResponses";
 
-let firstLoad = true;
 const showLoadingAction = () => ({
     type: SHOW_POSTS_LOADING
 });
@@ -39,15 +38,13 @@ export const setTotalCount = (total: number): PostListAction => ({
     total: total
 });
 
-export const load = (page: number, limit: number) => (dispath: Dispatch)=>{
+export const load = (page: number, limit: number, idUser?: string) => (dispath: Dispatch)=>{
     dispath(showLoadingAction());
-    getPostList(page, limit)
-    .then((resp) => {
-        dispath(loadSuccessAction(resp ? resp.data : []))
-        firstLoad && dispath(setTotalCount(resp ? resp.total : 72))
-        firstLoad = false;
+    (idUser ? getPostListByUser(page, limit, idUser) : getPostList(page, limit))
+    .then((resp: PostListResponse) => {
+        dispath(loadSuccessAction(resp ? resp.data : []));
+        dispath(setTotalCount(resp ? resp.total : 72))
     })
     .catch((e: any)=> dispath(loadErrorAction(e)))
     .finally(()=> dispath(hideLoadingAction()));
-
 }

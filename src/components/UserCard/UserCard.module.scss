@@ -50,5 +50,8 @@
     &Dark{
         @include darkContent;
     }
+    a {
+        color: inherit;
+    }
     @include mediaSizeUsers;
 }

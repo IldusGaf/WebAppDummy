@@ -7,13 +7,6 @@
   background-color: $backColor;
   display: flex;
   flex-direction: column;
-  // display: grid;
-  // grid-template-columns: 1fr;
-  // grid-template-rows: auto 1fr auto;
-  // grid-template-areas: 
-  //   'header'
-  //   'main'
-  //   'footer';
   &Dark {
     @include darkApp;
   }

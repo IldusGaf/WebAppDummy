@@ -42,8 +42,8 @@ export const load = (page: number, limit: number, idUser?: string) => (dispath: 
     dispath(showLoadingAction());
     (idUser ? getPostListByUser(page, limit, idUser) : getPostList(page, limit))
     .then((resp: PostListResponse) => {
-        dispath(loadSuccessAction(resp ? resp.data : []));
-        dispath(setTotalCount(resp ? resp.total : 72))
+        dispath(loadSuccessAction(resp.data.length !==0 ? resp.data : []));
+        dispath(setTotalCount(resp.total !== 0 ? resp.total : 0))
     })
     .catch((e: any)=> dispath(loadErrorAction(e)))
     .finally(()=> dispath(hideLoadingAction()));

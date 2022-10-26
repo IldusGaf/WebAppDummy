@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Pagination } from 'antd';
 import { PostType } from '../../types/dummyAPIResponses';
 import { State } from '../../types/state';
 import { Loader } from '../Loader/Loader';
@@ -11,6 +10,7 @@ import * as actions from '../../actions/posts';
 import classes from './PostList.module.scss';
 import { Modal } from '../Modal/Modal';
 import PostComments from '../PostComments/PostComments';
+import { PaginationWrapper } from '../wrappers/PaginationWrapper/PaginationWrapper';
 
 interface Props {
   postList: Array<PostType>,
@@ -37,46 +37,34 @@ const PostList = ({
     id: '',
   };
   const [modalContent, setModalContent] = useState(initialModalContent);
-  const changePage = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  const changePageSize = (page: number, pageSize: number) => {
-    setLimit(pageSize);
-    page && console.log(page);
-  };
 
   useEffect(() => {
     load(page - 1, limit, idUser);
-  }, [page, limit]);
+  }, [page, limit, idUser]);
 
   return (
-    <div className={classes.paginationWrapper}>
-      <div className={classes.postList}>
-        {/* eslint-disable-next-line no-nested-ternary */}
-        {error ? <div>{error}</div> : loading ? <Loader /> : (idUser ? postList.slice(0, 3) : postList).map((post) => (
-          <ComponentWithHelper comment={post.id ? post.id : 'empty str'} key={post.id}>
-            <div onClick={() => {
-              setOpen(true);
-              setModalContent(post);
-            }}
-            >
-              <PostCard image={post.image} text={post.text} owner={post.owner} publishDate={post.publishDate} visibleOwner={!!idUser} />
-            </div>
-          </ComponentWithHelper>
-        ))}
-      </div>
-      {!loading && (
-      <div className={classes.paginationWrapper__pagination}>
-        <Pagination defaultCurrent={1} current={page} total={total} pageSize={limit} onChange={changePage} onShowSizeChange={changePageSize} pageSizeOptions={[6, 12, 24, 48]} />
-      </div>
-      )}
+    <>
+      <PaginationWrapper loading={loading} page={page} total={total} limit={limit} setCurrentPage={setCurrentPage} setLimit={setLimit}>
+        <div className={classes.postList}>
+          {/* eslint-disable-next-line no-nested-ternary */}
+          {error ? <div>{error}</div> : loading ? <Loader /> : (idUser ? postList.slice(0, 3) : postList).map((post) => (
+            <ComponentWithHelper comment={post.id ? post.id : 'empty str'} key={post.id}>
+              <div onClick={() => {
+                setOpen(true);
+                setModalContent(post);
+              }}
+              >
+                <PostCard image={post.image} text={post.text} owner={post.owner} publishDate={post.publishDate} visibleOwner={!!idUser} />
+              </div>
+            </ComponentWithHelper>
+          ))}
+        </div>
+      </PaginationWrapper>
       <Modal open={open} setOpen={setOpen}>
         <PostCard image={modalContent.image} text={modalContent.text} owner={modalContent.owner} publishDate={modalContent.publishDate} />
         {modalContent.id && <PostComments post={modalContent.id || ''} />}
       </Modal>
-    </div>
-
+    </>
   );
 };
 

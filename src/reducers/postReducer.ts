@@ -13,7 +13,7 @@ const initialState: PostState = {
   error: '',
   page: 0,
   limit: 6,
-  total: 36,
+  total: 0,
 };
 
 const showLoading = (draft: PostState) => {
@@ -37,17 +37,17 @@ const loadError = (draft: PostState, e: any) => {
 };
 
 const setCurrentPage = (draft: PostState, page?: number) => {
-  page && (draft.page = page);
+  draft.page = page;
   return draft;
 };
 
 const setTotalCount = (draft: PostState, total?: number) => {
-  total && (draft.total = total);
+  draft.total = total;
   return draft;
 };
 
 const setLimit = (draft: PostState, limit?: number) => {
-  limit && (draft.limit = limit);
+  draft.limit = limit;
   return draft;
 };
 

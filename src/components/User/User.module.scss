@@ -43,7 +43,7 @@
        }
        &Edit {
         position: absolute;
-        top: 1.4rem;
+        cursor: pointer;
         right: 0;
        }
     }
@@ -51,6 +51,9 @@
         @include darkContent;
     }
     @media (max-width: 576px) { 
-     justify-content: center;    
+     justify-content: center;
+     &__info {
+        margin-top: 1rem;
+     }   
     }
 }

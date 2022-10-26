@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import Logo from '../Logo/Logo';
 import { Navbar } from '../Navbar/Navbar';
-import { UserDesk } from '../UserDesk/UserDesk';
+import UserDesk from '../UserDesk/UserDesk';
 import classes from './Header.module.scss';
 
 function Header() {

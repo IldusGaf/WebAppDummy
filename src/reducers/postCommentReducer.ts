@@ -13,7 +13,7 @@ const initialState: PostCommentState = {
   error: '',
   page: 0,
   limit: 6,
-  total: 36,
+  total: 0,
 };
 
 const showLoading = (draft: PostCommentState) => {

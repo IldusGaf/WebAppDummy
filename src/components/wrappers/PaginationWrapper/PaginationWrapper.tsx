@@ -25,15 +25,15 @@ export const PaginationWrapper = ({
     page && console.log(page);
   };
   return (
-    <>
+    <div>
       <div className={classes.paginationWrapper}>
         {children}
       </div>
-      {!loading && (
+      {!loading && !!total && (
         <div className={classes.paginationWrapper__pagination}>
           {total > limit && <Pagination defaultCurrent={1} current={page} total={total} pageSize={limit} onChange={changePage} onShowSizeChange={changePageSize} pageSizeOptions={[6, 12, 24, 48]} />}
         </div>
       )}
-    </>
+    </div>
   );
 };

@@ -29,9 +29,20 @@ export interface UserProfileState extends LoadingState {
   userProfileData: UserProfileTypeResponse,
 }
 
+export interface UserProfileEditState extends LoadingState {
+  userProfileEditData: UserProfileTypeResponse,
+}
+
+export interface AuthorizationState extends LoadingState {
+  authUser: UserProfileTypeResponse,
+  isAuth: boolean,
+}
+
 export interface State {
   posts: PostState,
   postComments: PostCommentState,
   users: UserState,
   userProfile: UserProfileState,
+  userProfileEdit: UserProfileEditState,
+  authorization: AuthorizationState,
 }

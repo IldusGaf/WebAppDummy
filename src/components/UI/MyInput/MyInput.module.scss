@@ -1,0 +1,10 @@
+@import '../../styleConstants.scss';
+
+.myInput {
+    text-align: center;
+    font-weight: bolder;
+    width: 100%;
+    padding: 2px;
+    border: 2px solid $elementBorderColor;
+    border-radius: 5px;
+}

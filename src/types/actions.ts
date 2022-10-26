@@ -27,3 +27,11 @@ export interface UserListAction extends Action, PaginationState, LoadingState {
 export interface UserProfileAction extends Action, LoadingState {
   userProfileData?: UserProfileTypeResponse,
 }
+
+export interface UserProfileEditAction extends Action, LoadingState {
+  userProfileEditData?: UserProfileTypeResponse,
+}
+
+export interface AuthorizationAction extends Action, LoadingState {
+  authUser?: UserProfileTypeResponse,
+}

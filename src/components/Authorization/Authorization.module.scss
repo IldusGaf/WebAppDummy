@@ -1,0 +1,46 @@
+@import '../styleConstants.scss';
+
+.authorization {
+    display: flex;
+    width: 100%;
+    background-color: $elementColor;
+    border: 0.1rem solid $elementBorderColor;
+    justify-content: center;
+    align-items: center;
+    border-radius: $contentBorderRadius;
+    margin: 0.5rem;
+    padding: 1rem;
+    &__content {
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 65%;
+        grid-gap: 1rem;
+        & form {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 1rem;
+            width: 100%;
+        }
+    }
+    &__nonAuth {
+        color: gray;
+        & a {
+            color: inherit; 
+        }
+        & a:hover {
+            text-decoration: underline;
+        }
+    }
+    &__desc {
+        color: inherit;
+    }
+    &Dark{
+        @include darkContent;
+    }
+    &__error {
+        color: $errorColor;
+        font-weight: bold;
+    }
+}

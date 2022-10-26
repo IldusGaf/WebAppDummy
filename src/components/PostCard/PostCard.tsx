@@ -1,5 +1,6 @@
 // import { UserOutlined } from '@ant-design/icons';
 // import { Avatar } from 'antd';
+import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { PostType } from '../../types/dummyAPIResponses';
@@ -29,7 +30,7 @@ export const PostCard = ({
             {' '}
             {owner.lastName}
           </span>
-          <span className={classes.postCard__userDate}>{publishDate}</span>
+          <span className={classes.postCard__userDate}>{publishDate && format(new Date(publishDate), 'dd MMMM yyyy HH:mm')}</span>
         </div>
       </div>
       )}

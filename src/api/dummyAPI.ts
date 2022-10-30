@@ -42,6 +42,23 @@ const doPutRequest = (path:string, data:any, searchParams?: Record<string, any>,
     .catch((err: any) => (errorCallback ? errorCallback(err) : err));
 };
 
+const doPostRequest = (path:string, data:any, searchParams?: Record<string, any>, callback?: (resp: any) => void, errorCallback?: (resp: any)=> void) => {
+  const url = new URL(path, BASE_URL);
+  searchParams && Object.entries(searchParams).forEach((params) => {
+    url.searchParams.append(params[0], params[1].toString());
+  });
+  return fetch(url, {
+    method: METHOD_POST,
+    headers: new Headers({
+      'Content-Type': 'application/json;charset=utf-8',
+      [APP_ID_FIELD]: APP_ID_VALUE,
+    }),
+    body: JSON.stringify(data),
+  }).then((response) => response.json())
+    .then((json: any) => (callback ? callback(json.data) : json))
+    .catch((err: any) => (errorCallback ? errorCallback(err) : err));
+};
+
 export const getPostList = (page: number, limit: number, callback?: (resp: Array<PostType>) => any, errorCallback?: (resp: any)=> void) => doGetRequest(POST_URL, {
   [PAGE_FIELD]: page,
   [LIMIT_FIELD]: limit,
@@ -73,4 +90,9 @@ export const editUserProfile = (idUser: string,
   update: UserProfileTypeResponse,
   callback?: (resp: UserProfileTypeResponse) => any,
   errorCallback?: (resp: any)=> void) => doPutRequest(`${USER_URL}/${idUser}`, update,
+  callback, errorCallback);
+
+export const registrationUser = (createUser: UserProfileTypeResponse,
+  callback?: (resp: UserProfileTypeResponse) => any,
+  errorCallback?: (resp: any)=> void) => doPostRequest(`${USER_URL}/create`, createUser,
   callback, errorCallback);

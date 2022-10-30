@@ -14,6 +14,8 @@ $contentLeftRightPaddingMiddle: 3rem;
 $contentLeftRightPaddingLarge: 4rem;
 $contentLeftRightPaddingExtraLarge: 5rem;
 
+$inputBorderColor: #35424B;
+
 @mixin darkApp {
     background-color: #273139;
 }
@@ -21,7 +23,7 @@ $contentLeftRightPaddingExtraLarge: 5rem;
 @mixin darkContent {
     color: $elementDarkColor;
     background-color: #35424B;
-    border-color: #384248;
+    border-color: #273139;
 }
 
 @mixin mediaPadding {
@@ -187,4 +189,39 @@ $imgUserHeightExtraLarge: 96px;
        height: $imgUserHeightExtraLarge;
     }
     
+}
+
+$inputWidthExtraSmall: 65%;
+$inputWidthSmall: 65%;
+$inputWidthMiddle: 45%;
+$inputWidthLarge: 45%;
+$inputWidthExtraLarge: 35%;
+$inputHeightExtraSmall: initial;
+$inputHeightSmall: initial;
+$inputHeightMiddle: initial;
+$inputHeightLarge: initial;
+$inputHeightExtraLarge: initial;
+
+@mixin mediaSizeInputesWrap {
+    @media (max-width: 576px) { 
+        width: $inputWidthExtraSmall;
+        height: $inputHeightExtraSmall;
+    } 
+    @media (min-width: 576px) and (max-width: 768px) {
+        width: $inputWidthSmall;
+       height: $inputHeightSmall;
+    }
+    @media (min-width: 768px) and (max-width: 992px) {
+        width: $inputWidthMiddle;
+       height: $inputHeightMiddle;
+
+    }
+    @media (min-width: 992px) and (max-width: 1200px) {
+        width: $inputWidthLarge;
+       height: $inputHeightLarge;
+    } 
+    @media (min-width: 1200px) {
+        width: $inputWidthExtraLarge;
+       height: $inputHeightExtraLarge;
+    }
 }

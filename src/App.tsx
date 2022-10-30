@@ -12,6 +12,7 @@ import { ThemeContext, ThemeContextProvider, ThemeContextState } from './context
 import UserList from './components/UserList/UserList';
 import User from './components/User/User';
 import Authorization from './components/Authorization/Authorization';
+import Registration from './components/Registration/Registration';
 
 function App() {
   const themeContext = useContext(ThemeContext);
@@ -26,6 +27,7 @@ function App() {
               <Main>
                 <Routes>
                   <Route path="/authorization" element={<Authorization />} />
+                  <Route path="/registration" element={<Registration />} />
                   <Route path="/users" element={<UserList />} />
                   <Route path="/posts" element={<PostList />} />
                   <Route path="/user/:id" element={<User />} />

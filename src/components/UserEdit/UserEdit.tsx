@@ -10,6 +10,8 @@ import { edit, editPhoto } from '../../actions/userProfileEdit';
 import classes from './UserEdit.module.scss';
 
 import { format } from 'date-fns';
+import { UserOutlined } from '@ant-design/icons';
+import { Avatar } from 'antd';
 
 interface Props {
   userProfileData: UserProfileTypeResponse,
@@ -56,11 +58,6 @@ const UserEdit = ({
   const imgHandler = (e: any) => {
     e.preventDefault();
     editPhoto(e.target.files[0], (imgUrl)=>setInputes({...inputes, picture: imgUrl}))
-    // const formData = new FormData();
-    // formData.append('image',e.target.files[0]);
-    // fileToBase64Url(formData.get('image'), (res) => {formData.set('image',res)});
-    // console.log(formData.get('image'));
-    // uploadFileToImgBB(formData, (imgUrl)=>setInputes({...inputes, picture: imgUrl}));
 }
 
   const editHandler = (userData: UserProfileTypeResponse) => {
@@ -69,7 +66,7 @@ const UserEdit = ({
 
   return (
     <div className={`${classes.userEdit} ${themeContext.darkTheme ? classes.userEditDark : ''}`}>
-      <figure className={classes.userEdit__image}><img alt={userProfileData.firstName} src={userProfileData.picture} /></figure>
+      <figure className={classes.userEdit__image}>{ userProfileData.picture ? <img alt={userProfileData.firstName} src={userProfileData.picture} />: <Avatar icon={<UserOutlined />} size={96} />}</figure>
       <div className={classes.userEdit__info}>
         {inputes && <form onSubmit={(e)=>{
           e.preventDefault();
@@ -116,7 +113,7 @@ const UserEdit = ({
                         lastName: e.target.value.split(" ")[2],
                       }
                       )} 
-                    value={`${inputes.title} ${inputes.firstName} ${inputes.lastName}`} />
+                    value={`${inputes.title ? inputes.title : ''} ${inputes.firstName} ${inputes.lastName}`} />
             </td>
           </tr>
           <tr>

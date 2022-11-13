@@ -37,6 +37,9 @@ export interface AuthorizationState extends LoadingState {
   authUser: UserProfileTypeResponse,
   isAuth: boolean,
 }
+export interface RegistrationState extends LoadingState {
+  registrationUser: UserProfileTypeResponse,
+}
 
 export interface State {
   posts: PostState,
@@ -45,4 +48,5 @@ export interface State {
   userProfile: UserProfileState,
   userProfileEdit: UserProfileEditState,
   authorization: AuthorizationState,
+  registration: RegistrationState,
 }

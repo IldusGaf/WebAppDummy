@@ -35,3 +35,7 @@ export interface UserProfileEditAction extends Action, LoadingState {
 export interface AuthorizationAction extends Action, LoadingState {
   authUser?: UserProfileTypeResponse,
 }
+
+export interface RegistrationAction extends Action, LoadingState {
+  regUser?: UserProfileTypeResponse,
+}

@@ -25,8 +25,8 @@ const UserDesk = ({
         ? (
           <Link to={`/user/${authUser.id}`}>
             <div className={classes.userDesk__user}>
-              {/* <Avatar icon={<UserOutlined />} /> */}
-              <figure className={classes.userDesk__userImage}><img alt={authUser?.firstName} src={authUser?.picture} /></figure>
+              {authUser?.picture ? <figure className={classes.userDesk__userImage}><img alt={authUser?.firstName} src={authUser?.picture} /></figure>
+                : <Avatar icon={<UserOutlined />} />}
               <span className={classes.userDesk__userName}>{authUser?.firstName}</span>
             </div>
           </Link>

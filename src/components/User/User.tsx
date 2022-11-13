@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import { EditOutlined } from '@ant-design/icons';
+import { EditOutlined, UserOutlined } from '@ant-design/icons';
 import { format } from 'date-fns';
+import { Avatar } from 'antd';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { UserProfileTypeResponse } from '../../types/dummyAPIResponses';
 import { State } from '../../types/state';
@@ -43,7 +44,7 @@ const User = ({
         {error ? <div>{error}</div> : loading ? <Loader />
           : (
             <>
-              <figure className={classes.user__image}><img alt={userProfileData.firstName} src={userProfileData.picture} /></figure>
+              <figure className={classes.user__image}>{ userProfileData.picture ? <img alt={userProfileData.firstName} src={userProfileData.picture} /> : <Avatar icon={<UserOutlined />} size={96} />}</figure>
               <div className={classes.user__info}>
                 <div className={classes.user__infoMain}>
                   <div>

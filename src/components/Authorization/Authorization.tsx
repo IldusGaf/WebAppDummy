@@ -47,10 +47,11 @@ const Authorization = ({ authorizationId, isAuth, auth, loading, error, authErro
                   type="text"
                   name="id"
                   placeholder="Введите свой ID"
+                  className={`${classes.authorization__inputText} ${themeContext.darkTheme ? classes.authorization__inputTextDark : ''}`}
                   onChange={(e: any) => setInput(e.target.value)}
                   value={input}
                 />
-              <MyInput type="submit" value="Отправить"/>
+              <MyInput type="submit" className={`${classes.authorization__inputButton} ${themeContext.darkTheme ? classes.authorization__inputButtonDark : ''}`} value="Отправить"/>
             </form>
             <span className={classes.authorization__nonAuth}>Еще нет аккаунта? <Link to={"/registration"}>Зарегистрироваться</Link></span>
             {error && <span className={classes.authorization__error}>Проверьте корретность вводимого ID</span>}

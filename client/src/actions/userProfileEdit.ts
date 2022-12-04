@@ -45,7 +45,6 @@ const editPhotoErrorAction = (error: any): UserProfileEditAction => ({
 });
 
 export const editPhoto = (userPhoto: any, callback:(imgUrl: string) => void) => (dispatch: Dispatch) => {
-  console.log('im here fuck');
   dispatch(showPhotoLoadingAction());
   const formData = new FormData();
   formData.append('image', userPhoto);

@@ -78,4 +78,15 @@ module.exports = {
         GET_COMMENT_LIST_THIRD_PARTY_REPLY_ERROR: '[CommentRepository.getCommentListThirdParty] error {}',
         GET_COMMENT_LIST_THIRD_PARTY_REPLY_RESULT: '[CommentRepository.getCommentListThirdParty] result {}',
     },
+    imgService: {
+        UPLOAD_IMG_INPUT_PARAMS: '[ImgService.uploadImg] INPUT PARAMS body={}',
+        UPLOAD_IMG_SUCCESS: '[ImgService.uploadImg] success status={} response={}',
+        UPLOAD_IMG_FAIL: '[ImgService.uploadImg] fail status={} response={}',
+        UPLOAD_IMG_ERROR: '[ImgService.uploadImg] error status={} response={}',
+    },
+    imgActions: {
+        UPLOAD_IMG_INVOKE: '[ImgActions.uploadImgThirdParty] invoke imgBBApi.uploadImgApi formData={}',
+        UPLOAD_IMG_REPLY_SUCCESS: '[ImgActions.uploadImgThirdParty] success {}',
+        UPLOAD_IMG_REPLY_ERROR: '[ImgActions.uploadImgThirdParty] error {}',
+    },
 }

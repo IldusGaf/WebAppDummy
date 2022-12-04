@@ -56,7 +56,7 @@ class UserService {
             .send(result)
         })
         .catch(error => {
-            logger.error(format(messages.CREATE_USER_ERROR,520, error))
+            logger.error(format(messages.CREATE_USER_ERROR, 520, error))
             res.status(520).send(error)})
     }
 }

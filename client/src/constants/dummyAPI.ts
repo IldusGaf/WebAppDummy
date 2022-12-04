@@ -1,4 +1,5 @@
 export const BASE_URL = 'https://dummyapi.io/data/v1/';
+export const PROXY_URL = 'http://localhost:3001/';
 
 export const POST_URL = 'post';
 export const USER_URL = 'user';

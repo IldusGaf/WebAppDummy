@@ -11,6 +11,13 @@ const getFetch = (url) => {
     .then(resp => {
         console.log(resp)
         return resp.json()})
+    .then((json) => {
+        if (json.error) {
+            return Promise.reject(json.error);
+        } else {
+            return json
+        }
+    })  
 }
 
 const createFetchWithBody = (url, method, body) => {
@@ -26,6 +33,13 @@ const createFetchWithBody = (url, method, body) => {
     .then(resp => {
         console.log(resp)
         return resp.json()})
+    .then((json) => {
+        if (json.error) {
+            return Promise.reject(json.error);
+        } else {
+            return json
+        }
+    })  
 }
 
 module.exports = {

@@ -1,19 +1,20 @@
 import { METHOD_GET, METHOD_POST, METHOD_PUT } from '../constants/common';
 import {
-  APP_ID_FIELD, APP_ID_VALUE, BASE_URL, LIMIT_FIELD, PAGE_FIELD, POST_URL, USER_URL,
+  APP_ID_FIELD, APP_ID_VALUE, PROXY_URL, LIMIT_FIELD, PAGE_FIELD, POST_URL, USER_URL,
 } from '../constants/dummyAPI';
 import { OwnerType, PostType, UserProfileTypeResponse } from '../types/dummyAPIResponses';
 
 const doGetRequest = (path:string, searchParams?: Record<string, any>, callback?: (resp: any) => void, errorCallback?: (resp: any)=> void) => {
-  const url = new URL(path, BASE_URL);
+  const url = new URL(path, PROXY_URL);
   searchParams && Object.entries(searchParams).forEach((params) => {
     url.searchParams.append(params[0], params[1].toString());
   });
   return fetch(url, {
     method: METHOD_GET,
-    headers: new Headers({
-      [APP_ID_FIELD]: APP_ID_VALUE,
-    }),
+    // расскоментивать при обращении не через proxy
+    // headers: new Headers({
+    //   [APP_ID_FIELD]: APP_ID_VALUE,
+    // }),
 
   }).then((response) => response.json())
     .then((json: any) => {
@@ -26,7 +27,7 @@ const doGetRequest = (path:string, searchParams?: Record<string, any>, callback?
 };
 
 const doPutRequest = (path:string, data:any, searchParams?: Record<string, any>, callback?: (resp: any) => void, errorCallback?: (resp: any)=> void) => {
-  const url = new URL(path, BASE_URL);
+  const url = new URL(path, PROXY_URL);
   searchParams && Object.entries(searchParams).forEach((params) => {
     url.searchParams.append(params[0], params[1].toString());
   });
@@ -34,7 +35,7 @@ const doPutRequest = (path:string, data:any, searchParams?: Record<string, any>,
     method: METHOD_PUT,
     headers: new Headers({
       'Content-Type': 'application/json;charset=utf-8',
-      [APP_ID_FIELD]: APP_ID_VALUE,
+    //   [APP_ID_FIELD]: APP_ID_VALUE,
     }),
     body: JSON.stringify(data),
   }).then((response) => response.json())
@@ -43,7 +44,7 @@ const doPutRequest = (path:string, data:any, searchParams?: Record<string, any>,
 };
 
 const doPostRequest = (path:string, data:any, searchParams?: Record<string, any>, callback?: (resp: any) => void, errorCallback?: (resp: any)=> void) => {
-  const url = new URL(path, BASE_URL);
+  const url = new URL(path, PROXY_URL);
   searchParams && Object.entries(searchParams).forEach((params) => {
     url.searchParams.append(params[0], params[1].toString());
   });
@@ -51,7 +52,7 @@ const doPostRequest = (path:string, data:any, searchParams?: Record<string, any>
     method: METHOD_POST,
     headers: new Headers({
       'Content-Type': 'application/json;charset=utf-8',
-      [APP_ID_FIELD]: APP_ID_VALUE,
+    //   [APP_ID_FIELD]: APP_ID_VALUE,
     }),
     body: JSON.stringify(data),
   }).then((response) => response.json())

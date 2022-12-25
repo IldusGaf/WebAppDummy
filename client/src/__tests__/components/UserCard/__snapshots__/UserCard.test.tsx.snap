@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCard component snapshot test 1`] = `
+<div
+  className="userCard "
+>
+  <Link
+    to="/user/undefined"
+  >
+    <div
+      className="userCard__user"
+    >
+      <Avatar
+        icon={<ForwardRef(UserOutlined) />}
+        size={96}
+      />
+      <div
+        className="userCard__userDesc"
+      >
+        <span
+          className="userCard__userName"
+        >
+           
+        </span>
+      </div>
+    </div>
+  </Link>
+</div>
+`;

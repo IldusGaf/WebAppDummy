@@ -5,10 +5,10 @@ import { Link, Navigate } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { State } from '../../types/state';
-import { MyInput } from '../UI/MyInput/MyInput';
+import { MyInput } from '../../components/UI/MyInput/MyInput';
 import { auth, authErrorAction } from '../../actions/authorization'
 import classes from './Authorization.module.scss';
-import { Loader } from '../Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 
 interface Props {
   loading: boolean,

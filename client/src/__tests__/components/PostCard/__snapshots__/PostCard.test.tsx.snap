@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostCard component test snapshot test 1`] = `
+<div
+  className="postCard "
+>
+  <div
+    className="postCard__user"
+  >
+    <figure
+      className="postCard__userImage"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </figure>
+    <div
+      className="postCard__userDesc"
+    >
+      <span
+        className="postCard__userName"
+      >
+         
+      </span>
+      <span
+        className="postCard__userDate"
+      />
+    </div>
+  </div>
+  <img
+    alt=""
+    className="postCard__image"
+    src=""
+  />
+  <span
+    className="postCard__desc"
+  />
+</div>
+`;

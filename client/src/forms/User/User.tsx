@@ -10,10 +10,10 @@ import { UserProfileTypeResponse } from '../../types/dummyAPIResponses';
 import { State } from '../../types/state';
 import * as actions from '../../actions/userProfile';
 import classes from './User.module.scss';
-import { Loader } from '../Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 import PostList from '../PostList/PostList';
-import { Modal } from '../Modal/Modal';
-import UserEdit from '../UserEdit/UserEdit';
+import { Modal } from '../../components/Modal/Modal';
+import UserEdit from '../../components/UserEdit/UserEdit';
 
 interface Props {
   userProfileData: UserProfileTypeResponse,

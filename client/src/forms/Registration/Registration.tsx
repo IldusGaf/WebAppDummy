@@ -8,8 +8,8 @@ import { registration } from '../../actions/registsration';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { UserProfileTypeResponse } from '../../types/dummyAPIResponses';
 import { State } from '../../types/state';
-import { Loader } from '../Loader/Loader';
-import { MyInput } from '../UI/MyInput/MyInput';
+import { Loader } from '../../components/Loader/Loader';
+import { MyInput } from '../../components/UI/MyInput/MyInput';
 import classes from './Registration.module.scss';
 
 interface Props {

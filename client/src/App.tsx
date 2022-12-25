@@ -6,13 +6,13 @@ import './App.scss';
 import 'antd/dist/antd.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-import Main from './components/Main/Main';
-import PostList from './components/PostList/PostList';
+import Main from './components/wrappers/Main/Main';
+import PostList from './forms/PostList/PostList';
 import { ThemeContext, ThemeContextProvider, ThemeContextState } from './contexts/ThemeContext';
-import UserList from './components/UserList/UserList';
-import User from './components/User/User';
-import Authorization from './components/Authorization/Authorization';
-import Registration from './components/Registration/Registration';
+import UserList from './forms/UserList/UserList';
+import User from './forms/User/User';
+import Authorization from './forms/Authorization/Authorization';
+import Registration from './forms/Registration/Registration';
 
 function App() {
   const themeContext = useContext(ThemeContext);

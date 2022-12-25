@@ -4,12 +4,12 @@ import { bindActionCreators } from 'redux';
 import { Pagination } from 'antd';
 import { OwnerType } from '../../types/dummyAPIResponses';
 import { State } from '../../types/state';
-import { Loader } from '../Loader/Loader';
-import { UserCard } from '../UserCard/UserCard';
-import { ComponentWithHelper } from '../wrappers/ComponentWithHelper/ComponentWithHelper';
+import { Loader } from '../../components/Loader/Loader';
+import { UserCard } from '../../components/UserCard/UserCard';
+import { ComponentWithHelper } from '../../components/wrappers/ComponentWithHelper/ComponentWithHelper';
 import * as actions from '../../actions/users';
 import classes from './UserList.module.scss';
-import { PaginationWrapper } from '../wrappers/PaginationWrapper/PaginationWrapper';
+import { PaginationWrapper } from '../../components/wrappers/PaginationWrapper/PaginationWrapper';
 
 interface Props {
   userList: Array<OwnerType>,

@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { PostType } from '../../types/dummyAPIResponses';
 import { State } from '../../types/state';
-import { Loader } from '../Loader/Loader';
-import { PostCard } from '../PostCard/PostCard';
-import { ComponentWithHelper } from '../wrappers/ComponentWithHelper/ComponentWithHelper';
+import { Loader } from '../../components/Loader/Loader';
+import { PostCard } from '../../components/PostCard/PostCard';
+import { ComponentWithHelper } from '../../components/wrappers/ComponentWithHelper/ComponentWithHelper';
 import * as actions from '../../actions/posts';
 import classes from './PostList.module.scss';
-import { Modal } from '../Modal/Modal';
-import PostComments from '../PostComments/PostComments';
-import { PaginationWrapper } from '../wrappers/PaginationWrapper/PaginationWrapper';
+import { Modal } from '../../components/Modal/Modal';
+import PostComments from '../../components/PostComments/PostComments';
+import { PaginationWrapper } from '../../components/wrappers/PaginationWrapper/PaginationWrapper';
 
 interface Props {
   postList: Array<PostType>,

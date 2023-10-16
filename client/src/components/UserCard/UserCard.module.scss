@@ -1,16 +1,21 @@
 @import '../styleConstants.scss';
 
 .userCard {
+    height: 100%;
+    width: 100%;
     display: flex;
-    box-sizing: content-box;
     background-color: $elementColor;
     border: 0.1rem solid $elementBorderColor;
     flex-direction: column;
     justify-content: flex-start;
     border-radius: $contentBorderRadius;
-    margin: 0.4rem;
     padding: 1rem;
+    a {
+        height: 100%;
+        width: 100%;
+    }
     &__user {
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -38,11 +43,12 @@
         color: gray;
     }
     &__image {
+        height: 90%;
+        max-width: 90%;
         object-fit: cover;
         background-color: $backColor;
         border-radius: $contentBorderRadius;
         margin-bottom: 0.3rem;
-        @include mediaSizeImgUsers;
     }
     &__desc {
         color: inherit;
@@ -53,5 +59,4 @@
     a {
         color: inherit;
     }
-    @include mediaSizeUsers;
 }

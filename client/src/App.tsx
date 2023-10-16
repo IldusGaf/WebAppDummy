@@ -16,7 +16,6 @@ import Registration from './forms/Registration/Registration';
 
 function App() {
   const themeContext = useContext(ThemeContext);
-  console.log(themeContext.darkTheme);
   return (
     <HashRouter>
       <ThemeContextProvider>

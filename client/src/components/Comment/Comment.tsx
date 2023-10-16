@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { format } from 'date-fns';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { PostCommentType } from '../../types/dummyAPIResponses';
 import classes from './Comment.module.scss';
@@ -20,7 +21,7 @@ export const Comment = ({
             {' '}
             {owner.lastName}
           </span>
-          <span className={classes.comment__userDate}>{publishDate}</span>
+          <span className={classes.comment__userDate}>{publishDate && format(new Date(publishDate), 'dd MMMM yyyy HH:mm')}</span>
         </div>
       </div>
       <span className={classes.comment__desc}>{message}</span>

@@ -1,14 +1,15 @@
 @import '../styleConstants.scss';
 .postCard {
+    height: 100%;
+    width: 100%;
     display: flex;
     background-color: $elementColor;
     border: 0.1rem solid $elementBorderColor;
     flex-direction: column;
     justify-content: center;
     border-radius: $contentBorderRadius;
-    margin: 0.5rem;
+    // margin: 0.5rem;
     padding: 1rem;
-    box-sizing: content-box;
     &__user {
         display: flex;
         align-items: center;
@@ -38,6 +39,7 @@
         background-color: $backColor;
         border-radius: $contentBorderRadius;
         margin-bottom: 0.3rem;
+        max-height: 440px;
         @include mediaSizeImg;
     }
     &__desc {
@@ -49,5 +51,4 @@
     &Dark{
         @include darkContent;
     }
-    @include mediaSizeCards;
 }

@@ -1,7 +1,9 @@
+@import '../../styleConstants.scss';
 .componentWithHelper {
     position: relative;
     display: flex;
     justify-content: center;
+    @include mediaSizeCards;
 }
 
 .componentWithHelper__helper {

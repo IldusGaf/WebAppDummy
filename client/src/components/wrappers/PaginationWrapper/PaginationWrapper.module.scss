@@ -1,7 +1,8 @@
 .paginationWrapper {
+    flex-grow: 1;
+    margin: 0.5rem 0;
     display: flex;
     flex-direction: column;
-    width: 100%;
 }
 
 .paginationWrapper__pagination {

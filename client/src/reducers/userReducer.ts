@@ -12,7 +12,7 @@ const initialState: UserState = {
   loading: false,
   error: '',
   page: 0,
-  limit: 12,
+  limit: 6,
   total: 36,
 };
 

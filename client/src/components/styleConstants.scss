@@ -49,16 +49,16 @@ $inputBorderColor: #35424B;
     } 
 }
 
-$cardWidthExtraSmall: 85vw;
-$cardWidthSmall: 33vw;
-$cardWidthMiddle: 35vw;;
-$cardWidthLarge: 23vw;
-$cardWidthExtraLarge: 23vw;
+$cardWidthExtraSmall: 100%;
+$cardWidthSmall: 100%;
+$cardWidthMiddle: 43vw;
+$cardWidthLarge: 43vw;
+$cardWidthExtraLarge: 29vw;
 $cardHeightExtraSmall: 380px;
-$cardHeightSmall: 340px;
-$cardHeightMiddle: 300px;
-$cardHeightLarge: 245px;
-$cardHeightExtraLarge: 245px;
+$cardHeightSmall: 400px;
+$cardHeightMiddle: 420px;
+$cardHeightLarge: 440px;
+$cardHeightExtraLarge: 38vh;
 
 @mixin mediaSizeCards {
     @media (max-width: 576px) { 

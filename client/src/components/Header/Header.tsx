@@ -8,10 +8,12 @@ import classes from './Header.module.scss';
 function Header() {
   const themeContext = useContext(ThemeContext);
   return (
-    <header className={`${classes.header} ${themeContext.darkTheme ? classes.headerDark : ''}`}>
-      <Logo />
-      <Navbar />
-      <UserDesk />
+    <header className={classes.header}>
+      <div className={`${classes.header__container} ${themeContext.darkTheme ? classes.header__containerDark : ''}`}>
+        <Logo />
+        <Navbar />
+        <UserDesk />
+      </div>
     </header>
   );
 }

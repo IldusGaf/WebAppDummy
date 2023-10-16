@@ -7,9 +7,10 @@
   background-color: $backColor;
   display: flex;
   flex-direction: column;
-  &Dark {
+    &Dark {
     @include darkApp;
   }
 }
+
 
 

@@ -49,10 +49,12 @@ const PostList = ({
           {/* eslint-disable-next-line no-nested-ternary */}
           {error ? <div>{error}</div> : loading ? <Loader /> : (idUser ? postList.slice(0, 3) : postList).map((post) => (
             <ComponentWithHelper comment={post.id ? post.id : 'empty str'} key={post.id}>
-              <div onClick={() => {
-                setOpen(true);
-                setModalContent(post);
-              }}
+              <div
+                onClick={() => {
+                  setOpen(true);
+                  setModalContent(post);
+                }}
+                style={{ height: '100%', width: '100%' }}
               >
                 <PostCard image={post.image} text={post.text} owner={post.owner} publishDate={post.publishDate} visibleOwner={!!idUser} />
               </div>
@@ -61,8 +63,10 @@ const PostList = ({
         </div>
       </PaginationWrapper>
       <Modal open={open} setOpen={setOpen}>
-        <PostCard image={modalContent.image} text={modalContent.text} owner={modalContent.owner} publishDate={modalContent.publishDate} />
-        {modalContent.id && <PostComments post={modalContent.id || ''} />}
+        <div className={classes.postList__modal}>
+          <PostCard image={modalContent.image} text={modalContent.text} owner={modalContent.owner} publishDate={modalContent.publishDate} />
+          {modalContent.id && <PostComments post={modalContent.id || ''} />}
+        </div>
       </Modal>
     </>
   );

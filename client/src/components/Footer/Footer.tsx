@@ -6,11 +6,13 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 function Footer() {
   const themeContext = useContext(ThemeContext);
   return (
-    <footer className={`${classes.footer} ${themeContext.darkTheme ? classes.footerDark : ''}`}>
-      <span>Delta World &copy; 2022</span>
-      <div className={classes.footer__switch}>
-        <span>Темная тема</span>
-        <Switch checked={themeContext.darkTheme} onClick={themeContext.toggleTheme} />
+    <footer className={classes.footer}>
+      <div className={`${classes.footer__container} ${themeContext.darkTheme ? classes.footer__containerDark : ''}`}>
+        <span>Delta World &copy; 2022</span>
+        <div className={classes.footer__switch}>
+          <span>Темная тема</span>
+          <Switch checked={themeContext.darkTheme} onClick={themeContext.toggleTheme} />
+        </div>
       </div>
     </footer>
   );

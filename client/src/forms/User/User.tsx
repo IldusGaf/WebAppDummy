@@ -39,10 +39,11 @@ const User = ({
   useEffect(() => { id && load(id); }, [userProfileEditData]);
   return (
     <div className={classes.userWrap}>
-      <div className={`${classes.user} ${themeContext.darkTheme ? classes.userDark : ''}`}>
-        {/* eslint-disable-next-line no-nested-ternary */}
-        {error ? <div>{error}</div> : loading ? <Loader />
-          : (
+      {error ? <div>{error}</div> : loading ? <Loader />
+        : (
+          <div className={`${classes.user} ${themeContext.darkTheme ? classes.userDark : ''}`}>
+            {/* eslint-disable-next-line no-nested-ternary */}
+
             <>
               <figure className={classes.user__image}>{ userProfileData.picture ? <img alt={userProfileData.firstName} src={userProfileData.picture} /> : <Avatar icon={<UserOutlined />} size={96} />}</figure>
               <div className={classes.user__info}>
@@ -100,21 +101,22 @@ const User = ({
                   </span>
                 </div>
                 {isAuth && (
-                <span
-                  className={classes.user__infoEdit}
-                  onClick={() => {
-                    setOpen(true);
-                    setModalContent({});
-                  }}
-                >
-                  <EditOutlined />
-                  Редактировать
-                </span>
+                  <span
+                    className={classes.user__infoEdit}
+                    onClick={() => {
+                      setOpen(true);
+                      setModalContent({});
+                    }}
+                  >
+                    <EditOutlined />
+                    Редактировать
+                  </span>
                 )}
               </div>
             </>
-          )}
-      </div>
+
+          </div>
+        )}
       <PostList idUser={id} />
       <Modal open={open} setOpen={setOpen}>
         <UserEdit userProfileData={userProfileData} setOpen={setOpen} />
@@ -126,7 +128,7 @@ const User = ({
 export default connect((state: State) => ({
   userProfileData: state.userProfile.userProfileData,
   userProfileEditData: state.userProfileEdit.userProfileEditData,
-  loading: state.userProfile.loading,
+  loading: state.userProfile.loading || state.posts.loading,
   error: state.userProfile.error,
   isAuth: state.authorization.isAuth,
 }), (dispatch) => bindActionCreators(actions, dispatch))(User);

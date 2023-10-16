@@ -1,0 +1,73 @@
+@import '../../components//styleConstants.scss';
+
+.authorization {
+    display: flex;
+    width: 100%;
+    background-color: $elementColor;
+    border: 0.1rem solid $elementBorderColor;
+    justify-content: center;
+    align-items: center;
+    border-radius: $contentBorderRadius;
+    margin: auto;
+    padding: 1rem;
+    &__content {
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 65%;
+        grid-gap: 1rem;
+        & form {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 1rem;
+            width: 100%;
+        }
+    }
+    &__nonAuth {
+        color: gray;
+        & a {
+            color: inherit; 
+        }
+        & a:hover {
+            text-decoration: underline;
+        }
+    }
+    &__desc {
+        color: inherit;
+    }
+    &__inputText {
+        text-align: center;
+        font-weight: bolder;
+        width: 100%;
+        padding: 2px;
+        border: 2px solid $elementBorderColor;
+        border-radius: 5px;
+        &Dark{
+            @include darkContent;
+        }
+    }
+    &__inputButton {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        font-weight: bolder;
+        text-align: center;
+        width: 100%;
+        padding: 2px;
+        border: 2px solid black;
+        border-radius: 5px;
+        &Dark{
+            @include darkContent;
+            background-color: #273139;
+        }
+    }
+    &__error {
+        color: $errorColor;
+        font-weight: bold;
+    }
+    &Dark{
+        @include darkContent;
+    }
+    
+}

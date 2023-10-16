@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment component test snapshot test 1`] = `
+<div
+  className="comment "
+>
+  <div
+    className="comment__user"
+  >
+    <figure
+      className="comment__userImage"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </figure>
+    <div
+      className="comment__userDesc"
+    >
+      <span
+        className="comment__userName"
+      >
+         
+      </span>
+      <span
+        className="comment__userDate"
+      />
+    </div>
+  </div>
+  <span
+    className="comment__desc"
+  />
+</div>
+`;

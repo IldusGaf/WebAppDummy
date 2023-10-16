@@ -13,7 +13,7 @@ const doGetRequest = (path:string, searchParams?: Record<string, any>, callback?
     method: METHOD_GET,
     // расскоментивать при обращении не через proxy
     // headers: new Headers({
-    //   [APP_ID_FIELD]: APP_ID_VALUE,
+      //   [APP_ID_FIELD]: APP_ID_VALUE,
     // }),
 
   }).then((response) => response.json())
@@ -35,7 +35,7 @@ const doPutRequest = (path:string, data:any, searchParams?: Record<string, any>,
     method: METHOD_PUT,
     headers: new Headers({
       'Content-Type': 'application/json;charset=utf-8',
-    //   [APP_ID_FIELD]: APP_ID_VALUE,
+      //   [APP_ID_FIELD]: APP_ID_VALUE,
     }),
     body: JSON.stringify(data),
   }).then((response) => response.json())
@@ -52,7 +52,7 @@ const doPostRequest = (path:string, data:any, searchParams?: Record<string, any>
     method: METHOD_POST,
     headers: new Headers({
       'Content-Type': 'application/json;charset=utf-8',
-    //   [APP_ID_FIELD]: APP_ID_VALUE,
+      //   [APP_ID_FIELD]: APP_ID_VALUE,
     }),
     body: JSON.stringify(data),
   }).then((response) => response.json())

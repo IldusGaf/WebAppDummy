@@ -1,4 +1,4 @@
-import { API_KEY, BASE_URL_IMGBB, PROXY_URL_IMGBB } from '../constants/imgBBAPI';
+import { API_KEY, PROXY_URL_IMGBB } from '../constants/imgBBAPI';
 
 export const uploadFileToImgBB = (formData: FormData, callback?: (imgUrl: string) => void) => {
   console.log('');

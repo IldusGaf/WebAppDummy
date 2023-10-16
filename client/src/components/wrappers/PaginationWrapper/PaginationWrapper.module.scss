@@ -1,0 +1,12 @@
+.paginationWrapper {
+    flex-grow: 1;
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.paginationWrapper__pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.3rem 1.1rem;
+}

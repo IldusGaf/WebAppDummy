@@ -1,0 +1,58 @@
+@import '../../components//styleConstants.scss';
+
+.userWrap {
+    flex-grow: 1;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+} 
+
+.user {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background-color: $elementColor;
+    border: 0.1rem solid $elementBorderColor;
+    border-radius: $contentBorderRadius;
+    &__image {
+        margin: 0;
+    }
+    &__image > img{
+        min-height: 33vh;
+        border-radius: $contentBorderRadius;
+    }
+    &__info {
+       position: relative;
+       display: flex; 
+       flex-grow: 1;
+       flex-wrap: nowrap;
+       margin-left: 1rem;
+       min-width: 200px;
+       justify-content: space-between;
+       &Main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        div > span {
+            display: block;
+            &:first-child {
+                font-size: 1.1rem;
+            }
+        }
+       }
+       &Edit {
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+       }
+    }
+    &Dark{
+        @include darkContent;
+    }
+    @media (max-width: 576px) { 
+     justify-content: center;
+     &__info {
+        margin-top: 1rem;
+     }   
+    }
+}

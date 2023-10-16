@@ -1,0 +1,21 @@
+@import '../styleConstants.scss';
+.header {
+    position: sticky;
+    top: 0;
+    z-index: $headerFooterZ;
+}
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // width: 100%;
+    background-color: $elementColor;
+    margin-top: 0.5rem;
+    border-bottom: 0.1rem solid $elementBorderColor;
+    padding: 0.5rem 0;
+    height: 3rem;
+    @include mediaPadding;
+    &Dark {
+        @include darkContent;
+    }
+}

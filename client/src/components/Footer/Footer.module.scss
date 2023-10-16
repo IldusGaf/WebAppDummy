@@ -1,0 +1,27 @@
+@import '../styleConstants.scss';
+.footer {
+    position: sticky;
+    bottom: 0;
+    z-index: $headerFooterZ; 
+    
+}
+.footer__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // width: 100%;
+    height: 3rem;
+    background-color: $elementColor;
+    margin-bottom: 0.5rem;
+    border-bottom: 0.1rem solid $elementBorderColor;
+    padding: 0.5rem 0;
+    &__switch {
+        span {
+            margin-right: 0.5rem;
+        }
+    }
+    &Dark {
+            @include darkContent;
+    }
+    @include mediaPadding;
+}

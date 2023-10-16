@@ -1,0 +1,16 @@
+@import '../../styleConstants.scss';
+.componentWithHelper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    @include mediaSizeCards;
+}
+
+.componentWithHelper__helper {
+    position: absolute;
+    z-index: 2;
+    top: -1.5em;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}

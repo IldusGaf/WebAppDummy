@@ -1,0 +1,19 @@
+.userList {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    grid-gap: 0.5rem;
+}
+
+.paginationWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.paginationWrapper__pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.3rem 1.1rem;
+}

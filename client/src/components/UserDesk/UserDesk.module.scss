@@ -1,0 +1,39 @@
+@import '../styleConstants.scss';
+
+.userDesk {
+    display: flex;
+    align-items: center;
+    &__auth {
+        padding-right: 0.5rem;
+        margin-right: 0.5rem;
+        border-right: 0.1rem solid $elementBorderColor;
+    }
+    &__user {
+        display: flex;
+        align-items: center;
+        gap: 0.1rem;
+    }
+    &__userImage {
+        margin: 0;
+    img {
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+    }}
+    & a {
+        color: inherit;
+    }
+    & a:hover {
+        text-decoration: underline;
+    }
+    & span:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    @media(max-width: 575px) { 
+        &__userName {
+            display: none;
+        }
+    }
+    
+}
